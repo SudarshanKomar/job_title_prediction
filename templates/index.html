@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Role Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        
+        <h2>Job Role Prediction</h2>
+
+        <div class="jobrole">
+            {% if predicted_role %}
+            <p>Predicted Job Role: {{ predicted_role }}</p>
+            {% endif %}
+        </div>
+
+        <form action="/" method="POST">
+            
+            <div class="category">
+                <h3>Technical Skills</h3>
+                <label for="Database_Fundamentals">Database Fundamentals</label>
+                <input type="range" name="Database_Fundamentals" min="1" max="10" value="1" class="slider" id="Database_Fundamentals" oninput="updateValue('Database_Fundamentals_value', this.value)">
+                <span id="Database_Fundamentals_value">1</span><br>
+
+                <label for="Computer_Architecture">Computer Architecture</label>
+                <input type="range" name="Computer_Architecture" min="1" max="10" value="1" class="slider" id="Computer_Architecture" oninput="updateValue('Computer_Architecture_value', this.value)">
+                <span id="Computer_Architecture_value">1</span><br>
+
+                <label for="Distributed_Computing_Systems">Distributed Computing Systems</label>
+                <input type="range" name="Distributed_Computing_Systems" min="1" max="10" value="1" class="slider" id="Distributed_Computing_Systems" oninput="updateValue('Distributed_Computing_Systems_value', this.value)">
+                <span id="Distributed_Computing_Systems_value">1</span><br>
+
+                <label for="Cyber_Security">Cyber Security</label>
+                <input type="range" name="Cyber_Security" min="1" max="10" value="1" class="slider" id="Cyber_Security" oninput="updateValue('Cyber_Security_value', this.value)">
+                <span id="Cyber_Security_value">1</span><br>
+
+                <label for="Networking">Networking</label>
+                <input type="range" name="Networking" min="1" max="10" value="1" class="slider" id="Networking" oninput="updateValue('Networking_value', this.value)">
+                <span id="Networking_value">1</span><br>
+
+                <label for="Software_Development">Software Development</label>
+                <input type="range" name="Software_Development" min="1" max="10" value="1" class="slider" id="Software_Development" oninput="updateValue('Software_Development_value', this.value)">
+                <span id="Software_Development_value">1</span><br>
+
+                <label for="Programming_Skills">Programming Skills</label>
+                <input type="range" name="Programming_Skills" min="1" max="10" value="1" class="slider" id="Programming_Skills" oninput="updateValue('Programming_Skills_value', this.value)">
+                <span id="Programming_Skills_value">1</span><br>
+
+                <label for="Project_Management">Project Management</label>
+                <input type="range" name="Project_Management" min="1" max="10" value="1" class="slider" id="Project_Management" oninput="updateValue('Project_Management_value', this.value)">
+                <span id="Project_Management_value">1</span><br>
+
+                <label for="Computer_Forensics_Fundamentals">Computer Forensics Fundamentals</label>
+                <input type="range" name="Computer_Forensics_Fundamentals" min="1" max="10" value="1" class="slider" id="Computer_Forensics_Fundamentals" oninput="updateValue('Computer_Forensics_Fundamentals_value', this.value)">
+                <span id="Computer_Forensics_Fundamentals_value">1</span><br>
+
+                <label for="Technical_Communication">Technical Communication</label>
+                <input type="range" name="Technical_Communication" min="1" max="10" value="1" class="slider" id="Technical_Communication" oninput="updateValue('Technical_Communication_value', this.value)">
+                <span id="Technical_Communication_value">1</span><br>
+
+                <label for="AI_ML">AI ML</label>
+                <input type="range" name="AI_ML" min="1" max="10" value="1" class="slider" id="AI_ML" oninput="updateValue('AI_ML_value', this.value)">
+                <span id="AI_ML_value">1</span><br>
+
+                <label for="Software_Engineering">Software Engineering</label>
+                <input type="range" name="Software_Engineering" min="1" max="10" value="1" class="slider" id="Software_Engineering" oninput="updateValue('Software_Engineering_value', this.value)">
+                <span id="Software_Engineering_value">1</span><br>
+
+                <label for="Business_Analysis">Business Analysis</label>
+                <input type="range" name="Business_Analysis" min="1" max="10" value="1" class="slider" id="Business_Analysis" oninput="updateValue('Business_Analysis_value', this.value)">
+                <span id="Business_Analysis_value">1</span><br>
+
+                <label for="Communication_skills">Communication Skills</label>
+                <input type="range" name="Communication_skills" min="1" max="10" value="1" class="slider" id="Communication_skills" oninput="updateValue('Communication_skills_value', this.value)">
+                <span id="Communication_skills_value">1</span><br>
+
+                <label for="Data_Science">Data Science</label>
+                <input type="range" name="Data_Science" min="1" max="10" value="1" class="slider" id="Data_Science" oninput="updateValue('Data_Science_value', this.value)">
+                <span id="Data_Science_value">1</span><br>
+
+                <label for="Troubleshooting_skills">Troubleshooting Skills</label>
+                <input type="range" name="Troubleshooting_skills" min="1" max="10" value="1" class="slider" id="Troubleshooting_skills" oninput="updateValue('Troubleshooting_skills_value', this.value)">
+                <span id="Troubleshooting_skills_value">1</span><br>
+
+                <label for="Graphics_Designing">Graphics Designing</label>
+                <input type="range" name="Graphics_Designing" min="1" max="10" value="1" class="slider" id="Graphics_Designing" oninput="updateValue('Graphics_Designing_value', this.value)">
+                <span id="Graphics_Designing_value">1</span><br>
+
+                <h3>Non-Technical Skills</h3>
+
+                <label for="Openness">Openness</label>
+                <input type="range" name="Openness" min="1" max="10" value="1" class="slider" id="Openness" oninput="updateValue('Openness_value', this.value)">
+                <span id="Openness_value">1</span><br>
+
+                <label for="Conscientousness">Conscientousness (Responsibility)</label>
+                <input type="range" name="Conscientousness" min="1" max="10" value="1" class="slider" id="Conscientousness" oninput="updateValue('Conscientousness_value', this.value)">
+                <span id="Conscientousness_value">1</span><br>
+
+                <label for="Extraversion">Extraversion (Sociability)</label>
+                <input type="range" name="Extraversion" min="1" max="10" value="1" class="slider" id="Extraversion" oninput="updateValue('Extraversion_value', this.value)">
+                <span id="Extraversion_value">1</span><br>
+
+                <label for="Agreeableness">Agreeableness</label>
+                <input type="range" name="Agreeableness" min="1" max="10" value="1" class="slider" id="Agreeableness" oninput="updateValue('Agreeableness_value', this.value)">
+                <span id="Agreeableness_value">1</span><br>
+
+                <label for="Emotional_Range">Emotional Range</label>
+                <input type="range" name="Emotional_Range" min="1" max="10" value="1" class="slider" id="Emotional_Range" oninput="updateValue('Emotional_Range_value', this.value)">
+                <span id="Emotional_Range_value">1</span><br>
+
+                <label for="Conversation">Conversation</label>
+                <input type="range" name="Conversation" min="1" max="10" value="1" class="slider" id="Conversation" oninput="updateValue('Conversation_value', this.value)">
+                <span id="Conversation_value">1</span><br>
+
+                <label for="Openness_to_Change">Openness to Change</label>
+                <input type="range" name="Openness_to_Change" min="1" max="10" value="1" class="slider" id="Openness_to_Change" oninput="updateValue('Openness_to_Change_value', this.value)">
+                <span id="Openness_to_Change_value">1</span><br>
+
+                <label for="Hedonism">Hedonism (Pleasure)</label>
+                <input type="range" name="Hedonism" min="1" max="10" value="1" class="slider" id="Hedonism" oninput="updateValue('Hedonism_value', this.value)">
+                <span id="Hedonism_value">1</span><br>
+
+                <label for="Self-enhancement">Self-enhancement</label>
+                <input type="range" name="Self-enhancement" min="1" max="10" value="1" class="slider" id="Self-enhancement" oninput="updateValue('Self-enhancement_value', this.value)">
+                <span id="Self-enhancement_value">1</span><br>
+
+                <label for="Self-transcendence">Self-transcendence (Spirituality)</label>
+                <input type="range" name="Self-transcendence" min="1" max="10" value="1" class="slider" id="Self-transcendence" oninput="updateValue('Self-transcendence_value', this.value)">
+                <span id="Self-transcendence_value">1</span><br>
+
+            </div>
+
+            <button type="submit">Predict Role</button>
+        </form>
+        
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
