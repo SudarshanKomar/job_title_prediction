@@ -27,7 +27,7 @@ Leverage a Random Forest model to give students personalized career guidance by 
 ## 📸 Screenshots
 
 ### 🔹 Input Form Page
-![Job Prediction Form](.images/joptp1.png)
+![Job Prediction Form](images/joptp1.png)
 
 ### 🔹 Prediction Result Displayed
 ![Job Prediction Result](./images/jobtp2.png)
