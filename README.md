@@ -118,7 +118,3 @@ Takes the user’s skill ratings and returns a suitable job title prediction.
 - Thanks to open-source ML libraries: **scikit-learn**, **Flask**
 
 - Icon set by **Heroicons**
-
-## Authors
-
-- [@SudarshanKomar](https://www.github.com/SudarshanKomar)
